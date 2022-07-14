@@ -8,12 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -56,11 +52,12 @@ public class ExchangeService {
             rateInfo.setInfo(rateObject.getBpi().getGBP());
         } else if (currentId == 3) {
             rateInfo.setInfo(rateObject.getBpi().getEUR());
+        }else{
+            return null;
         }
 
         return rateInfo;
     }
-
 
     /**
      * 取得 coindesk 資訊
